@@ -1,9 +1,9 @@
-clear % limpa vari�veis
-clc % limpa console
-close all % limpa as janelas de figuras
+clear % limpando variáveis
+clc % limpando console
 
-img = imread('C:\Users\Alunos\Documents\MATLAB\myimage.jpg');
+img = imread('myimage.jpg');
 img = double(rgb2gray(img));
+
 [N,M] = size(img); % N=linhas da imagem; M=colunas da imagem
 F = zeros(N,M);
 I = input('Insira valor i do kernel:');
@@ -17,11 +17,19 @@ img_nova = vertcat(img_nova, img(N-amp_lin+1:N,:)); % ampliando linhas de baixo
 img_nova = horzcat(img_nova(:, 1:amp_cols), img_nova); % ampliando colunas a esq
 img_nova = horzcat(img_nova, img_nova(:, M-amp_cols+1:M)); % ampliando colunas a direita
 
+% ajustando N e M da img original na img nova
+N2 = N+amp_lin;
+M2 = M+amp_cols;
+
 % posicionando o kernel na imagem
-for n=1:1:N
-    for m=1:1:M
-        for i=1:1:I
-            for j=1:1:J
+% n e m iniciam no centro do kernel, referência da img
+% i e j percorrem o kernel
+K = zeros(I,J);
+for n = 1+amp_lin :1: N2
+    for m = 1+amp_cols :1: M2
+        for i = 1 :1: I
+            for j = 1 :1: J
+                
             end
         end
     end
