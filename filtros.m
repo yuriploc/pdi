@@ -1,8 +1,5 @@
-clear % limpando variáveis
-clc % limpando console
-
-img = imread('myimage.jpg');
-img = rgb2gray(img); % img = imread('myimage.jpg');
+img_orig = imread('myimage.jpg');
+img = double(rgb2gray(img_orig));
 
 [N,M] = size(img); % N=linhas da imagem; M=colunas da imagem
 F = zeros(N,M);
@@ -26,15 +23,15 @@ K = zeros(I,J);
 % K(:) = 1/(I*J) % FILTRO DA MEDIA
 
 % FILTRO GAUSSIANO
-[X,Y] = meshgrid(-amp_lin:amp_lin,-amp_cols:amp_cols);
+[X,Y] = meshgrid(-amp_lin:amp_lin, -amp_cols:amp_cols);
 sigma = N/6;
-K = exp(X.^2+Y.^2)/(2*sigma^2); % normaliza ou nao?
-
+% K = (1/(2*pi*sigma^2))*exp(-(X.^2+Y.^2)/(2*sigma^2)); % #2
+% K = exp(((X.^2+Y.^2)./(2*sigma^2))); #1
+%K = K./sum(K(:)); % normaliza?
 
 
 % posicionando o kernel na imagem
-% n e m iniciam no centro do kernel,
-% desconsideram ampliacao de borda, referencia da img
+% n e m iniciam no centro do kernel,desconsideram ampliacao de borda,referencia da img
 % i e j percorrem o kernel
 for n = 1+amp_lin :1: N2-amp_lin
     for m = 1+amp_cols :1: M2-amp_cols
@@ -49,3 +46,5 @@ for n = 1+amp_lin :1: N2-amp_lin
         F(n-amp_lin, m-amp_cols) = result_sum_kernel;
     end
 end
+
+imshow(F)
