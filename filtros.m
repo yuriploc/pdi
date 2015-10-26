@@ -20,16 +20,25 @@ M2 = M+(amp_cols*2);
 
 K = zeros(I,J);
 
-% K(:) = 1/(I*J) % FILTRO DA MEDIA
+% FILTRO DA MEDIA
+% K(:) = 1/(I*J)
 
 % FILTRO GAUSSIANO
-[X,Y] = meshgrid(-amp_lin:amp_lin, -amp_cols:amp_cols);
-sigma = N/6;
-% K = (1/(2*pi*sigma^2))*exp(-(X.^2+Y.^2)/(2*sigma^2)); % #2
-% K = exp(((X.^2+Y.^2)./(2*sigma^2))); #1
-%K = K./sum(K(:)); % normaliza?
+% [X,Y] = meshgrid(-amp_lin:amp_lin, -amp_cols:amp_cols);
+% sigma = N/6;
+% K = (1/(2*pi*sigma^2))*exp(-(X.^2+Y.^2)/(2*sigma^2)); % eq 'completa' #2
+% K = exp(-((X.^2+Y.^2)/(2*sigma^2))); % #1
+% K = K./sum(K(:)); % normaliza?
 
+% MASCARA DE DERIVADA 2D (p/ kernel 3x3)
+% #1
+% K(:) = -1;
+% K(2,2) = 8;
+% #2
+% kk = [0 1 0];
+% K = [kk; 1 -4 1; kk];
 
+% CONVOLUCAO
 % posicionando o kernel na imagem
 % n e m iniciam no centro do kernel,desconsideram ampliacao de borda,referencia da img
 % i e j percorrem o kernel

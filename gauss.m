@@ -1,4 +1,5 @@
+% arquivo de teste
 img = imread('myimage.jpg');
-H = fspecial('gaussian');
+H = fspecial('log');
 MotionBlur = imfilter(img,H,'replicate');
 imshow(MotionBlur)
