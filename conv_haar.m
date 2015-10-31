@@ -31,12 +31,9 @@ for i = 1 :1: N
         k = k+1;
     end
     
-    passa_alta
-    passa_baixa
-
-    tamanho = tamanho/2
+    tamanho = tamanho/2;
     
-    piramide(N,tamanho) = passa_alta(1,tamanho)
+    piramide(i,1:tamanho) = passa_alta
     VETOR_AUX = passa_baixa;
     
     
