@@ -13,12 +13,15 @@ G0 = [1/sqrt(2) 1/sqrt(2)];
 G1 = [-1/sqrt(2) 1/sqrt(2)];
 
 tamanho = tamanho_sinal;
-piramide = zeros(N,tamanho/2);
+piramide = zeros(N,tamanho/2)
 
 for i = 1 :1: N
     
     conv_h0 = conv(VETOR_AUX,H0,'same');
     conv_h1 = conv(VETOR_AUX,H1,'same');
+    
+    passa_alta = zeros(1,tamanho/2);
+    passa_baixa = zeros(1,tamanho/2);
     
     % laco pega a subamostra
     k = 1;
@@ -27,7 +30,14 @@ for i = 1 :1: N
         passa_alta(1,k) = conv_h1(1,j);
         k = k+1;
     end
-    tamanho = tamanho/2;
-    % armazenar o passa-alta na piramide
-    %
+    
+    passa_alta
+    passa_baixa
+
+    tamanho = tamanho/2
+    
+    piramide(N,tamanho) = passa_alta(1,tamanho)
+    VETOR_AUX = passa_baixa;
+    
+    
 end
