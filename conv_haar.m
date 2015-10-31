@@ -28,6 +28,6 @@ for i = 1 :1: N
         k = k+1;
     end
     tamanho = tamanho/2;
-    % e agora, joel?
+    % armazenar o passa-alta na piramide
     %
 end
