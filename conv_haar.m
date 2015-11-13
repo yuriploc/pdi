@@ -46,3 +46,29 @@ for i = 1 :1: N
 end
 
 % RECONSTRUÇÃO
+
+for i = N :-1: 1
+    passa_alta = piramide(i,1:tamanho)
+    tamanho = tamanho*2;
+    
+    pa_expansao = zeros(1,tamanho)
+    pb_expansao = zeros(1,tamanho)
+    
+    % expande a subamostra
+    k = 1;
+    for j = 1 :2: tamanho
+        pa_expansao(1,j) = passa_alta(1,k)
+        pb_expansao(1,j) = passa_baixa(1,k)
+        k = k+1;
+    end
+    
+    conv_g0 = conv(pb_expansao,G0);
+    conv_g0 = conv_g0(1:end-1)
+    
+    conv_g1 = conv(pa_expansao,G1);
+    conv_g1 = conv_g1(1:end-1)
+    
+    passa_baixa = conv_g0 + conv_g1
+    
+    
+end
