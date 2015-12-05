@@ -1,0 +1,202 @@
+% Copyright (C) 2015 by Ivan Valbusa 
+% <ivan dot valbusa at univr dot it>
+% -------------------------------------------------------
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeVerona}[2015/11/27 v.0.1a Themes for the Beamer class]%
+
+\mode<presentation>
+
+\newif\ifbeamer@showheader
+\newif\ifbeamer@red
+\newif\ifbeamer@gray
+\newif\ifbeamer@colorblocks
+\newif\ifbeamer@graytitle
+\beamer@showheaderfalse
+\beamer@redfalse
+\beamer@grayfalse
+\beamer@colorblocksfalse
+\beamer@graytitlefalse
+\DeclareOptionBeamer{showheader}{\beamer@showheadertrue}
+\DeclareOptionBeamer{red}{\beamer@redtrue}
+\DeclareOptionBeamer{gray}{\beamer@graytrue}
+\DeclareOptionBeamer{colorblocks}{\beamer@colorblockstrue}
+\DeclareOptionBeamer{graytitle}{\beamer@graytitletrue}
+\ProcessOptionsBeamer
+
+% ******************
+% colortheme
+% ******************
+\definecolor{Veronagreen}{RGB}{0,152,0}
+\definecolor{Veronablue}{RGB}{0,51,102}
+\definecolor{Veronaorange}{RGB}{255,52,0}
+\definecolor{Veronateal}{RGB}{0,152,152}
+\definecolor{Veronared}{RGB}{152,0,0}
+\definecolor{Veronagray}{RGB}{102,102,102}
+\ifbeamer@red
+    \setbeamercolor{alerted text}{fg=Veronaorange}
+    \setbeamercolor{example text}{fg=Veronagreen}
+    \setbeamercolor{structure}{fg=Veronared}
+\else
+  \ifbeamer@gray
+    \setbeamercolor*{alerted text}{fg=Veronablue}
+    \setbeamercolor*{example text}{fg=Veronagreen}
+    \setbeamercolor*{structure}{fg=Veronagray}
+    \setbeamercolor*{frametitle}{fg=Veronagray!80,bg=}
+  \else
+    \setbeamercolor*{alerted text}{fg=Veronaorange}
+    \setbeamercolor*{example text}{fg=Veronagreen}
+    \setbeamercolor*{structure}{fg=Veronablue}
+  \fi
+\fi
+\setbeamercolor*{author in head/foot}{fg=Veronagray,bg=}
+\setbeamercolor*{title in head/foot}{fg=Veronagray,bg=}
+\setbeamercolor*{date in head/foot}{fg=Veronagray,bg=}
+\setbeamercolor*{section in head/foot}{fg=Veronagray,bg=}
+\setbeamercolor*{subsection in head/foot}{fg=Veronagray,bg=}
+\setbeamercolor*{subtitle}{fg=white}
+\setbeamercolor*{title}{fg=white,bg=Veronagray!75}
+\setbeamercolor*{author}{fg=gray}
+\setbeamercolor*{date}{fg=gray}
+\ifbeamer@graytitle
+\setbeamercolor*{frametitle}{fg=Veronagray!80}
+\else
+\fi
+% blocks
+\ifbeamer@colorblocks
+\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!10!bg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!10!bg}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!10!bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg}
+\else
+\fi
+% ******************
+% fonttheme
+% ******************
+\setbeamerfont*{tiny structure}{series=\mdseries,size=\fontsize{6}{6}}
+\setbeamerfont*{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont*{subtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont*{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont*{framesubtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont*{author}{size=\small,series=\bfseries}
+\setbeamerfont*{date}{size=\footnotesize}
+\setbeamerfont*{block title}{size={}}
+% ******************
+% innertheme
+% ******************
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+% ******************
+% outertheme
+% ******************
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{sidebar right}{}
+\setbeamersize{text margin left=1em,text margin right=1em}
+% title page
+\setbeamertemplate{title page}
+{
+\nointerlineskip  \begingroup
+    \centering\vskip-12mm
+    \begin{beamercolorbox}[sep=8pt,left,wd=\paperwidth,ht=.4\paperheight]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+\vspace*{-1mm}
+\hspace*{-4mm}\mbox{\color{structure.fg}\rule{12.8cm}{11pt}}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=0pt,left]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip3mm
+    \begin{beamercolorbox}[sep=0pt,left]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vskip3mm
+    \begin{beamercolorbox}[sep=0pt,left]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+% headline
+\ifbeamer@showheader
+\setbeamertemplate{headline}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip0pt%
+{\color{gray}\rule{12.8cm}{1pt}\\}
+}
+\else
+\fi
+% footline
+\setbeamertemplate{footline}
+{%
+{\color{gray}\rule{12.8cm}{1pt}\\}
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hspace*{2pt}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+% frame title
+\setbeamertemplate{frametitle}
+{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+\hspace*{-1mm}\mbox{\color{structure.fg}\rule{12.8cm}{2mm}}
+}
+
+\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by1.7cm}
+
+\mode
+<all>
+
+
+

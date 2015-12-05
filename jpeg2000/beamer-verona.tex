@@ -1,0 +1,111 @@
+% Copyright (C) 2015 by Ivan Valbusa 
+% <ivan dot valbusa at univr dot it>
+% -------------------------------------------------------
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
+\documentclass[10pt]{beamer}
+
+\usetheme{Verona}
+
+\title{Verona -- a theme for Beamer}
+\subtitle{Version 0.1a}
+\author[Ivan Valbusa]{Ivan Valbusa\texorpdfstring{\\}{}\scriptsize\texttt{ivan dot valbusa at univr dot it}}
+\institute[University of Verona]{Department of Philology, Literature, and Linguistics\\
+University of Verona}
+\date{November 27, 2015}
+
+\begin{document}
+
+% ----------- FRAME ------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+% ----------- FRAME ------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[b,plain]
+
+\begin{alertblock}{Warning}
+This is package is a beta version.\\
+Some or all the elements could change in the next versions.
+\end{alertblock}
+
+\vfill
+
+\color{gray}
+\small
+\noindent Copyright \copyright\ 2015 Ivan Valbusa.
+ \bigskip
+
+\noindent This package is author-maintained. 
+Permission is granted to copy, distribute and/or modify this software under the 
+terms of the LaTeX Project Public License, version 1.3c ora later (\url{http://latex-project.org/lppl}). This software is provided ''as is'', without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose.
+
+ \bigskip
+ 
+\noindent If you have any questions, feedback or requests please email me at \texttt{ivan dot valbusa at univr dot it}. If you need specific features not already implemented, remember to attach the example files.
+
+\bigskip
+
+\end{frame}
+% ----------- FRAME ------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How to use the theme?}
+
+If you can use Beamer than you can use this theme:
+\begin{description}
+\item[\TeX Live] \$ \alert{\texttt{texdoc beamer}}
+\item[Online] \url{http://bitbucket.org/rivanvx/beamer}
+\end{description}
+
+\bigskip
+
+Templates:\\
+\alert{\texttt{usr/local/texlive/\the\year/texmf-dist/doc/latex/beamer/solutions} }
+
+\smallskip
+
+This folder is in the \TeX Live distribution\\
+installed on your computer!
+\end{frame}
+% ----------- FRAME ------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{How to load the theme?}
+
+\begin{block}{If you do not like sectioning}
+\verb!\usetheme{Verona}!
+\end{block}
+
+\begin{block}{If you like sectioning}
+\verb!\usetheme[showheader]{Verona}!
+\end{block}
+
+\begin{alertblock}{Color options}
+\verb!\usetheme[blue]{Verona}!\\
+\verb!\usetheme[red]{Verona}!\\
+\verb!\usetheme[gray]{Verona}!\\
+\end{alertblock}
+\begin{alertblock}{Boxes}
+\verb!\usetheme[colorblocks]{Verona}!\\
+\end{alertblock}
+\begin{alertblock}{Frame title}
+\verb!\usetheme[graytitle]{Verona}!
+\end{alertblock}
+
+\end{frame}
+% ----------- FRAME ------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{background canvas}[vertical shading][top=gray,bottom=gray,middle=white,midpoint=0.9]
+\begin{frame}[plain]{}
+\vspace*{7cm}
+\small
+\textcolor{black!10}{Typeset with \LaTeX{} and Beamer class}
+\end{frame}
+\end{document}
