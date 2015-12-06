@@ -5,8 +5,8 @@
 \usepackage{graphicx}
 \usepackage[sfdefault]{quattrocento}
 \usepackage{multicol}
-\usetheme[showheader,red,colorblocks]{Verona}
-
+\usepackage{hyperref}
+\usetheme[showheader,blue,colorblocks]{Verona}
 \title{JPEG 2000}
 \subtitle{Sistemas Multimídia}
 \author[Yuri, Joel]{Yuri Oliveira \and Joel Rocha}
@@ -21,13 +21,44 @@
 \tableofcontents
 \end{frame}
 \section{Introdução}
-\subsection{Lossy vs. lossless}
-\begin{frame}{Lossy versus lossless}
-   \begin{block}{Lossless}
-      Sem perda de dados.
+\begin{frame}{Introdução}
+   \begin{itemize}
+      \item Comprimir é necessário!
+      \item Fotografias, páginas WEB, exames médicos.
+      \item Facilitar o armazenamento e transmissão.
+      \item Permite usar imagens menores com mesmo efeito.
+      \item Considere uma imagem...
+         \begin{itemize}
+            \item Tamanho: 3 in x 4 in (7,62 cm x 10,16 cm)
+            \item Resolução: 500 dpi
+            \item Pixel: 3 bytes
+            \item 3.000.000 pixels = 9.000.000 bytes = \textbf{9 MB} (7 disquetes)
+         \end{itemize}
+   \end{itemize}
+\end{frame}
+\subsection{Compressão de dados}
+\begin{frame}{Compressão de dados}
+   \begin{block}{\textit{Lossless}}
+      \begin{itemize}
+         \item Sem perda de dados.
+         \item Maior processamento.
+         \item Permite reconstrução.
+         \item Desenhos técnicos, textos, quadrinhos, mapas.
+         \item \emph{Run-lengh encoding} (Huffman, LZW).
+         \item PNG, GIF, TIFF.
+      \end{itemize}
    \end{block}
-   \begin{block}{Lossy}
-      Com perda de dados.
+\end{frame}
+\begin{frame}{Compressão de dados}
+   \begin{block}{\textit{Lossy}}
+      \begin{itemize}
+         \item Com perda de dados.
+         \item Maior compressão.
+         \item Não permite reconstrução.
+         \item Fotografia em geral.
+         \item Descarta o que é imperceptível.
+         \item JPEG, PGF, ICER.
+      \end{itemize}
    \end{block}
 \end{frame}
 \subsection{JPEG 1992}
@@ -45,7 +76,11 @@
 \subsection{Comparações}
 \section{Referências}
 \begin{frame}{Referências}
-
+   \begin{itemize}
+      \item \href{http://stefan.winklerbros.net/Publications/adip2004.pdf}{EBRAHIMI, CHAMIK, WINKLER. JPEG vs. JPEG2000: An Objective Comparison of Image Encoding Quality}
+      \item \href{http://faculty.gvsu.edu/aboufade/web/wavelets/student_work/EF/}{ELZINGA, FEENSTRA. JPEG 2000: The Next Compression Standard using wavelet technology}
+      \item \href{http://www.mvnet.fi/index.php?osio=Tutkielmat&luokka=Yliopisto&sivu=Image_compression}{VESTOLA. A study about image compression}
+   \end{itemize}
 \end{frame}
 
 \end{document}
