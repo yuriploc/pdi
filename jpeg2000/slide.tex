@@ -65,21 +65,136 @@
 \begin{frame}{JPEG 1992}
    Método de compressão de imagens com perda de dados que usa a transformada discreta do cosseno (DCT) e obtém o resultado assumindo que altas frequências não são percebidas.
 \end{frame}
-
 \section{Melhorias}
+\begin{frame}{JPEG 2000}
+\begin{itemize}
+   \item Derivado do JPEG 1992
+   \item \emph{Lossy} e \emph{Lossless}
+   \item Wavelet
+   \item Melhor compressão
+      \begin{itemize}
+         \item Alta qualidade.
+         \item Lossy (20\% a 200\%).
+      \end{itemize}
+
+\end{itemize}
+\end{frame}
+\begin{frame}{JPEG 2000: Exemplos}
+   \begin{multicols}{2}
+      \begin{figure}[h]
+         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_01.jpg}
+      \end{figure}
+      \begin{figure}[h]
+         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_01_2.jpg}
+      \end{figure}
+   \end{multicols}
+\end{frame}
+\begin{frame}{JPEG 2000: Exemplos}
+   \begin{multicols}{2}
+      \begin{figure}[h]
+         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_02_1.jpg}
+      \end{figure}
+      \begin{figure}[h]
+         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_02_2.jpg}
+      \end{figure}
+   \end{multicols}
+\end{frame}
+
 \subsection{Compressão}
 \subsection{Escalabilidade}
 \subsection{Editabilidade}
-\section{Implementação}
 \section{Análise dos resultados}
-\subsection{Exemplos}
-\subsection{Comparações}
+\subsection{Critério}
+\begin{frame}{Relação sinal-ruído de pico}
+   \begin{block}{Definição}
+      PSNR, \emph{Peak Signal-to-Noise Ratio}, define a relação entre energia máxima de um sinal e o ruído que afeta a representação dele.
+
+      $$ PSNR(dB) = -20 \log \frac{RMSE}{2^b -1} $$
+
+      $RMSE$ é o erro quadrático médio e $b$ é a quantidade de \emph{bits}.
+   \end{block}
+\end{frame}
+\subsection{Ferramenta}
+\begin{frame}{Ferramentas}
+   \begin{tabular}{| l | l | l |}
+      \hline
+      \textbf{Nome} & \textbf{Tipo} & \textbf{Descrição} \\
+      \hline
+      LuraWave JP2 & JPEG2000 & Comercial \\
+      \hline
+      Jasper & JPEG2000 & Não comercial, mais usado \\
+      \hline
+      BOI & JPEG2000 & Não comercial, Java. \\
+      \hline
+      HD Photo Device Porting Kit & HD Photo & JPEG2000 da Microsot \\
+      \hline
+      IrfanView JPEG & JPEG & JPEG da IrfanView \\
+      \hline
+   \end{tabular}
+\end{frame}
+\subsection{Casos de teste}
+\begin{frame}{Babuíno}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/baboon100.jpg}
+      \begin{itemize}
+         \item Tamanho: 786 486 bytes
+         \item Resolução: 512 x 512
+         \item Imagem colorida com muitos detalhes - pêlo e bigodes. Difícil de comprimir, pois contém uma grande variação de cor e uma grande quantidade de textura.
+      \end{itemize}
+   \end{multicols}
+\end{frame}
+\begin{frame}{Lenna}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/lenna100.jpg}
+      \begin{itemize}
+         \item Tamanho: 786 486 bytes
+         \item Resolução: 512 x 512
+         \item Imagem de teste clássica, mudança de cores suave, bordas.
+      \end{itemize}
+   \end{multicols}
+\end{frame}
+\begin{frame}{Farol}
+   \begin{multicols}{2}
+      \includegraphics[width=0.45\textwidth]{figure/lighthouse100.jpg}
+      \begin{itemize}
+         \item Tamanho: 983 094 bytes
+         \item Resolução: 512 x 640
+         \item Imagem colorida com muitos detalhes como cerca e corrimão na parte superior do farol. Também mostra o céu.
+      \end{itemize}
+   \end{multicols}
+\end{frame}
+\begin{frame}{Barbara}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/barbara100.jpg}
+      \begin{itemize}
+         \item Tamanho: 983 094 bytes
+         \item Resolução: 640 x 512
+         \item Imagem colorida. Rosto humano básico e pele.
+      \end{itemize}
+   \end{multicols}
+\end{frame}
+\subsection{Resultados}
+\begin{frame}
+   \includegraphics[width=\textwidth]{figure/baboon_psnr.png}
+\end{frame}
+\begin{frame}
+   \includegraphics[width=\textwidth]{figure/lenna_psnr.png}
+\end{frame}
+\begin{frame}
+   \includegraphics[width=\textwidth]{figure/lighthouse_psnr.png}
+\end{frame}
+\begin{frame}
+   \includegraphics[width=\textwidth]{figure/barbara_psnr.png}
+\end{frame}
+
+\section{Implementação}
 \section{Referências}
 \begin{frame}{Referências}
    \begin{itemize}
       \item \href{http://stefan.winklerbros.net/Publications/adip2004.pdf}{EBRAHIMI, CHAMIK, WINKLER. JPEG vs. JPEG2000: An Objective Comparison of Image Encoding Quality}
       \item \href{http://faculty.gvsu.edu/aboufade/web/wavelets/student_work/EF/}{ELZINGA, FEENSTRA. JPEG 2000: The Next Compression Standard using wavelet technology}
       \item \href{http://www.mvnet.fi/index.php?osio=Tutkielmat&luokka=Yliopisto&sivu=Image_compression}{VESTOLA. A study about image compression}
+      \item \href{http://web.stanford.edu/class/ee398a/handouts/papers/Christopoulos\%20-\%20JPEG2000.pdf}{CHRISTOPOULOS, SKODRAS, EBRAHIMI. The JPEG2000 Still Image Coding: An Overview}
    \end{itemize}
 \end{frame}
 
