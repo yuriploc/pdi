@@ -67,37 +67,41 @@
       Método de compressão de imagens com perda de dados que usa a transformada discreta do cosseno (DCT) e obtém o resultado assumindo que altas frequências não são percebidas.
    \end{block}
 \end{frame}
-\section{Melhorias}
+\section{JPEG 2000}
+\subsection{Melhorias}
 \begin{frame}{JPEG 2000}
-\begin{itemize}
-   \item Derivado do JPEG 1992
-   \item \emph{Lossy} e \emph{Lossless}
-   \item Wavelet
-   \item Melhor compressão
+   \begin{block}{Melhorias:}
       \begin{itemize}
-         \item Alta qualidade.
-         \item Lossy (20\% a 200\%).
+         \item \emph{Lossy} e \emph{Lossless}
+         \item Wavelet
+         \item Melhor compressão: Alta qualidade e Lossy (20\% a 200\%).
+         \item Várias resoluções.
+         \item \emph{Region of Interest} (ROI).
+         \item Transmissão progressiva.
+         \item Resistência a erros.
+         \item Formato do arquivo flexível.
       \end{itemize}
-   \item Várias resoluções.
-   \item \emph{Region }
-\end{itemize}
+   \end{block}
 \end{frame}
-\begin{frame}{JPEG 2000: Exemplos}
+\begin{frame}{JPEG versus JPEG 2000}
    \begin{multicols}{2}
    \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_01.jpg}
    \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_01_2.jpg}
    \end{multicols}
 \end{frame}
-\begin{frame}{JPEG 2000: Exemplos}
+\begin{frame}{JPEG versus JPEG 2000}
    \begin{multicols}{2}
    \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_02_1.jpg}
    \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_02_2.jpg}
    \end{multicols}
 \end{frame}
+\subsection{Como funciona?}
+\begin{frame}{Como funciona?}
 
-\subsection{Compressão}
-\subsection{Escalabilidade}
-\subsection{Editabilidade}
+\end{frame}
+\begin{frame}{Wavelet}
+   \includegraphics[width=\textwidth]{figure/wavelet-1.jpg}
+\end{frame}
 \section{Análise dos resultados}
 \subsection{Critério}
 \begin{frame}{Relação sinal-ruído de pico}
@@ -211,10 +215,11 @@
 \section{Referências}
 \begin{frame}{Referências}
    \begin{itemize}
-      \item \href{http://stefan.winklerbros.net/Publications/adip2004.pdf}{EBRAHIMI, CHAMIK, WINKLER. JPEG vs. JPEG2000: An Objective Comparison of Image Encoding Quality}
-      \item \href{http://faculty.gvsu.edu/aboufade/web/wavelets/student_work/EF/}{ELZINGA, FEENSTRA. JPEG 2000: The Next Compression Standard using wavelet technology}
-      \item \href{http://www.mvnet.fi/index.php?osio=Tutkielmat&luokka=Yliopisto&sivu=Image_compression}{VESTOLA. A study about image compression}
-      \item \href{http://web.stanford.edu/class/ee398a/handouts/papers/Christopoulos\%20-\%20JPEG2000.pdf}{CHRISTOPOULOS, SKODRAS, EBRAHIMI. The JPEG2000 Still Image Coding: An Overview}
+      \item \href{https://en.wikipedia.org/wiki/JPEG_2000}{JPEG 2000 - Página do Wikipédia.}
+      \item \href{http://stefan.winklerbros.net/Publications/adip2004.pdf}{EBRAHIMI, CHAMIK, WINKLER. JPEG vs. JPEG2000: An Objective Comparison of Image Encoding Quality.}
+      \item \href{http://faculty.gvsu.edu/aboufade/web/wavelets/student_work/EF/}{ELZINGA, FEENSTRA. JPEG 2000: The Next Compression Standard using wavelet technology.}
+      \item \href{http://www.mvnet.fi/index.php?osio=Tutkielmat&luokka=Yliopisto&sivu=Image_compression}{VESTOLA. A study about image compression.}
+      \item \href{http://web.stanford.edu/class/ee398a/handouts/papers/Christopoulos\%20-\%20JPEG2000.pdf}{CHRISTOPOULOS, SKODRAS, EBRAHIMI. The JPEG2000 Still Image Coding: An Overview.}
    \end{itemize}
 \end{frame}
 
