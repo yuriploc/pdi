@@ -63,7 +63,9 @@
 \end{frame}
 \subsection{JPEG 1992}
 \begin{frame}{JPEG 1992}
-   Método de compressão de imagens com perda de dados que usa a transformada discreta do cosseno (DCT) e obtém o resultado assumindo que altas frequências não são percebidas.
+   \begin{block}{Relembrando}
+      Método de compressão de imagens com perda de dados que usa a transformada discreta do cosseno (DCT) e obtém o resultado assumindo que altas frequências não são percebidas.
+   \end{block}
 \end{frame}
 \section{Melhorias}
 \begin{frame}{JPEG 2000}
@@ -76,27 +78,20 @@
          \item Alta qualidade.
          \item Lossy (20\% a 200\%).
       \end{itemize}
-
+   \item Várias resoluções.
+   \item \emph{Region }
 \end{itemize}
 \end{frame}
 \begin{frame}{JPEG 2000: Exemplos}
    \begin{multicols}{2}
-      \begin{figure}[h]
-         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_01.jpg}
-      \end{figure}
-      \begin{figure}[h]
-         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_01_2.jpg}
-      \end{figure}
+   \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_01.jpg}
+   \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_01_2.jpg}
    \end{multicols}
 \end{frame}
 \begin{frame}{JPEG 2000: Exemplos}
    \begin{multicols}{2}
-      \begin{figure}[h]
-         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_02_1.jpg}
-      \end{figure}
-      \begin{figure}[h]
-         \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_02_2.jpg}
-      \end{figure}
+   \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_02_1.jpg}
+   \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_02_2.jpg}
    \end{multicols}
 \end{frame}
 
@@ -143,16 +138,6 @@
       \end{itemize}
    \end{multicols}
 \end{frame}
-\begin{frame}{Lenna}
-   \begin{multicols}{2}
-      \includegraphics[width=0.5\textwidth]{figure/lenna100.jpg}
-      \begin{itemize}
-         \item Tamanho: 786 486 bytes
-         \item Resolução: 512 x 512
-         \item Imagem de teste clássica, mudança de cores suave, bordas.
-      \end{itemize}
-   \end{multicols}
-\end{frame}
 \begin{frame}{Farol}
    \begin{multicols}{2}
       \includegraphics[width=0.45\textwidth]{figure/lighthouse100.jpg}
@@ -177,15 +162,50 @@
 \begin{frame}
    \includegraphics[width=\textwidth]{figure/baboon_psnr.png}
 \end{frame}
-\begin{frame}
-   \includegraphics[width=\textwidth]{figure/lenna_psnr.png}
+\begin{frame}{JPEG 2000 (BOI)}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/BOI_baboon030.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_baboon030.png}
+   \end{multicols}
+\end{frame}
+\begin{frame}{JPEG}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/JPEG_baboon030.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_JPEG_baboon030.png}
+   \end{multicols}
 \end{frame}
 \begin{frame}
    \includegraphics[width=\textwidth]{figure/lighthouse_psnr.png}
 \end{frame}
+\begin{frame}{JPEG 2000 (BOI)}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/BOI_lighthouse050.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_lighthouse050.png}
+   \end{multicols}
+\end{frame}
+\begin{frame}{JPEG}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/JPEG_lighthouse050.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_JPEG_lighthouse050.png}
+   \end{multicols}
+\end{frame}
+
 \begin{frame}
    \includegraphics[width=\textwidth]{figure/barbara_psnr.png}
 \end{frame}
+\begin{frame}{JPEG 2000 (BOI)}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/BOI_barbara010.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_barbara010.png}
+   \end{multicols}
+\end{frame}
+\begin{frame}{JPEG}
+   \begin{multicols}{2}
+      \includegraphics[width=0.5\textwidth]{figure/JPEG_barbara010.jpg}
+      \includegraphics[width=0.5\textwidth]{figure/psnr_JPEG_barbara010.png}
+   \end{multicols}
+\end{frame}
+
 
 \section{Implementação}
 \section{Referências}
