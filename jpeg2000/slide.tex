@@ -6,13 +6,17 @@
 \usepackage[sfdefault]{quattrocento}
 \usepackage{multicol}
 \usepackage{hyperref}
+\usepackage{smartdiagram}
+
 \usetheme[showheader,blue,colorblocks]{Verona}
+
 \title{JPEG 2000}
 \subtitle{Sistemas Multimídia}
 \author[Joel, Yuri]{Joel Rocha \and Yuri Oliveira}
 \institute[IFCE]{Instituto Federal de Ciência, Arte e Tecnologia}
 \date{Dezembro, 2015}
 \logo{\includegraphics[width=0.8cm]{figure/logo.jpg}}
+
 \begin{document}
   \begin{frame}
     \titlepage
@@ -20,8 +24,10 @@
   \begin{frame}{\contentsname}
     \tableofcontents
   \end{frame}
+
   \section{Introdução}
   \begin{frame}{Introdução}
+    \begin{block}{}
     \begin{itemize}
       \item Comprimir é necessário!
       \item Fotografias, páginas WEB, exames médicos.
@@ -35,7 +41,9 @@
         \item 3.000.000 pixels = 9.000.000 bytes = \textbf{9 MB} (7 disquetes)
       \end{itemize}
     \end{itemize}
+    \end{block}
   \end{frame}
+
   \subsection{Compressão de dados}
   \begin{frame}{Compressão de dados}
     \begin{block}{\textit{Lossless}}
@@ -49,6 +57,7 @@
       \end{itemize}
     \end{block}
   \end{frame}
+
   \begin{frame}{Compressão de dados}
     \begin{block}{\textit{Lossy}}
       \begin{itemize}
@@ -61,12 +70,14 @@
       \end{itemize}
     \end{block}
   \end{frame}
+
   \subsection{JPEG 1992}
   \begin{frame}{JPEG 1992}
     \begin{block}{Relembrando}
       Método de compressão de imagens com perda de dados que usa a transformada discreta do cosseno (DCT) e obtém o resultado assumindo que altas frequências não são percebidas.
     \end{block}
   \end{frame}
+
   \section{JPEG 2000}
   \subsection{Melhorias}
   \begin{frame}{JPEG 2000}
@@ -83,25 +94,33 @@
       \end{itemize}
     \end{block}
   \end{frame}
+
   \begin{frame}{JPEG versus JPEG 2000}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_01.jpg}
       \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_01_2.jpg}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{JPEG versus JPEG 2000}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/ex_jpeg_02_1.jpg}
       \includegraphics[width=0.5\textwidth]{figure/ex_jpeg2k_02_2.jpg}
     \end{multicols}
   \end{frame}
+
   \subsection{Como funciona?}
   \begin{frame}{Como funciona?}
-
+    \begin{center}
+      \smartdiagramset{font=\scriptsize, module minimum width=0.5cm, module minimum height=0.5cm, arrow tip=to, circular final arrow disabled=true}
+      \smartdiagram[circular diagram:clockwise]{Imagem, Transforma{\c c}{\~a}o do espa{\c c}o de cores, Transformada Wavelet, Quantiza{\c c}{\~a}o, Codificador de Entropia, JPEG}
+    \end{center}
   \end{frame}
+
   \begin{frame}{Wavelet}
     \includegraphics[width=\textwidth]{figure/wavelet-1.jpg}
   \end{frame}
+
   \section{Análise dos resultados}
   \subsection{Critério}
   \begin{frame}{Relação sinal-ruído de pico}
@@ -113,6 +132,7 @@
       $RMSE$ é o erro quadrático médio e $b$ é a quantidade de \emph{bits}.
     \end{block}
   \end{frame}
+
   \subsection{Ferramenta}
   \begin{frame}{Ferramentas}
     \begin{tabular}{| l | l | l |}
@@ -131,6 +151,7 @@
       \hline
     \end{tabular}
   \end{frame}
+
   \subsection{Casos de teste}
   \begin{frame}{Babuíno}
     \begin{multicols}{2}
@@ -142,6 +163,7 @@
       \end{itemize}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{Farol}
     \begin{multicols}{2}
       \includegraphics[width=0.45\textwidth]{figure/lighthouse100.jpg}
@@ -152,6 +174,7 @@
       \end{itemize}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{Barbara}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/barbara100.jpg}
@@ -162,31 +185,37 @@
       \end{itemize}
     \end{multicols}
   \end{frame}
+
   \subsection{Resultados}
   \begin{frame}
     \includegraphics[width=\textwidth]{figure/baboon_psnr.png}
   \end{frame}
+
   \begin{frame}{JPEG 2000 (BOI)}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/BOI_baboon030.jpg}
       \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_baboon030.png}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{JPEG}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/JPEG_baboon030.jpg}
       \includegraphics[width=0.5\textwidth]{figure/psnr_JPEG_baboon030.png}
     \end{multicols}
   \end{frame}
+
   \begin{frame}
     \includegraphics[width=\textwidth]{figure/lighthouse_psnr.png}
   \end{frame}
+
   \begin{frame}{JPEG 2000 (BOI)}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/BOI_lighthouse050.jpg}
       \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_lighthouse050.png}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{JPEG}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/JPEG_lighthouse050.jpg}
@@ -203,13 +232,13 @@
       \includegraphics[width=0.5\textwidth]{figure/psnr_BOI_barbara010.png}
     \end{multicols}
   \end{frame}
+
   \begin{frame}{JPEG}
     \begin{multicols}{2}
       \includegraphics[width=0.5\textwidth]{figure/JPEG_barbara010.jpg}
       \includegraphics[width=0.5\textwidth]{figure/psnr_JPEG_barbara010.png}
     \end{multicols}
   \end{frame}
-
 
   \section{Implementação}
   \section{Referências}
